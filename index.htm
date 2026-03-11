@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klearvoy | Professional Hardware Furniture Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* Navbar */
+        .navbar {
+            background-color: #1a1a1a;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .navbar .logo img {
+            height: 40px;
+        }
+        .navbar .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .navbar .nav-links a {
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .navbar .nav-links a:hover {
+            color: #00a8e8;
+        }
+        /* Banner */
+        .banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url("https://images.unsplash.com/photo-1581090464777-f7ef2a8a0fda?auto=format&fit=crop&w=1200&q=80") no-repeat center center;
+            background-size: cover;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 5%;
+        }
+        .banner h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .banner p {
+            font-size: 20px;
+            max-width: 800px;
+            opacity: 0.9;
+        }
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 70px auto;
+        }
+        /* Section Title */
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background-color: #00a8e8;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* About Us */
+        .about {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .about-text p {
+            margin-bottom: 22px;
+        }
+        .about-text .btn {
+            display: inline-block;
+            background-color: #00a8e8;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        .about-text .btn:hover {
+            background-color: #0088c0;
+        }
+        /* Products */
+        .products {
+            margin-top: 90px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .product-img {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+        .product-info {
+            padding: 25px;
+        }
+        .product-info h3 {
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+        .product-info p {
+            color: #666;
+            margin-bottom: 18px;
+        }
+        .product-info .price {
+            color: #00a8e8;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+        .product-info .btn {
+            display: inline-block;
+            border: 2px solid #00a8e8;
+            color: #00a8e8;
+            padding: 9px 24px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .product-info .btn:hover {
+            background-color: #00a8e8;
+            color: white;
+        }
+        /* Contact */
+        .contact {
+            margin-top: 90px;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 70px 0;
+        }
+        .contact .section-title {
+            color: white;
+        }
+        .contact .section-title::after {
+            background-color: #00a8e8;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .contact-item {
+            min-width: 220px;
+        }
+        .contact-item h4 {
+            font-size: 20px;
+            margin-bottom: 18px;
+            color: #00a8e8;
+        }
+        /* Footer */
+        footer {
+            background-color: #0f0f0f;
+            color: #aaa;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 14px;
+        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 34px;
+            }
+            .banner p {
+                font-size: 16px;
+            }
+            .navbar .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .about {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar with Logo -->
+    <nav class="navbar">
+        <div class="logo">
+            <!-- Replace with your actual Logo URL later -->
+            <img src="https://via.placeholder.com/40x40?text=K" alt="Klearvoy Logo">
+            <span class="logo-text">KLEARVOY</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner" id="home">
+        <div>
+            <h1>Precision Crafted Hardware Furniture</h1>
+            <p>Durable, functional, and aesthetic solutions for office, commercial, and residential spaces</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- About Us -->
+        <section class="about-section" id="about">
+            <h2 class="section-title">About Klearvoy</h2>
+            <div class="about">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1565043825793-b0d9a7a3e086?auto=format&fit=crop&w=800&q=80" alt="Klearvoy Factory">
+                </div>
+                <div class="about-text">
+                    <p>Klearvoy is a leading manufacturer of high-quality hardware furniture, integrating R&D, design, production, and global sales. We specialize in durable, ergonomic, and cost-effective solutions for offices, hotels, schools, hospitals, and residential environments.</p>
+                    <p>With state-of-the-art production facilities and a strict quality control system, we ensure every product meets international standards for stability, corrosion resistance, and environmental safety. Our team of engineers and designers works closely with clients to deliver custom solutions tailored to unique project requirements.</p>
+                    <p>Trusted by businesses worldwide, Klearvoy is committed to building long-term partnerships through reliable products, competitive pricing, and responsive after-sales support.</p>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="products" id="products">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80" alt="Steel Office Filing Cabinet">
+                    </div>
+                    <div class="product-info">
+                        <h3>Steel Office Filing Cabinet</h3>
+                        <p>Thickened cold-rolled steel, electrostatic powder coating, rust-proof, and space-efficient for office storage.</p>
+                        <div class="price">$59.99 – $129.99</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=800&q=80" alt="Stainless Steel Workbench">
+                    </div>
+                    <div class="product-info">
+                        <h3>Stainless Steel Workbench</h3>
+                        <p>304 stainless steel construction, heavy load capacity, easy to clean, ideal for workshops and labs.</p>
+                        <div class="price">$149.99 – $299.99</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Metal Dining Set">
+                    </div>
+                    <div class="product-info">
+                        <h3>Metal Dining Set</h3>
+                        <p>Sturdy frame, rounded edges, wear-resistant, suitable for restaurants, cafeterias, and homes.</p>
+                        <div class="price">$89.99 – $199.99</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Address</h4>
+                <p>123 Industrial Park, X City, Guangdong, China</p>
+            </div>
+            <div class="contact-item">
+                <h4>Phone</h4>
+                <p>+86 138 XXXX 8888</p>
+            </div>
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p>info@klearvoy.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Klearvoy. All rights reserved. | www.klearvoy.com</p>
+    </footer>
+</body>
+</html>
